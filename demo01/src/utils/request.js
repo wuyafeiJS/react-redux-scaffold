@@ -39,7 +39,11 @@ export default async function request(url, options) {
   const response = await fetch(url, options);
   try {
     const data = await response.json();
-    handledata(data);
+    //handledata(data);
+    const ret = {
+      data: data
+    }
+    return ret;
   } catch (err) {
     handleError(err)
   }

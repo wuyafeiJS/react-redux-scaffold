@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'dva';
+import { Link } from 'dva/router'
 
-function IndexPage(props) {
+function IndexPage({ data, children, loading }) {
+  !loading && console.log(data)
   return (
     <div>
-      <div>hahaha</div>
-      {props.children}
+      <Link to='/products'>hahfsafdaha</Link>
+      {children}
     </div>
   );
 }
@@ -13,4 +15,11 @@ function IndexPage(props) {
 IndexPage.propTypes = {
 };
 
-export default connect()(IndexPage);
+const mapStateToProps = (state) => {
+  return {
+    data: state.app,
+    loading: state.loading.models.app
+  }
+}
+
+export default connect(mapStateToProps)(IndexPage);

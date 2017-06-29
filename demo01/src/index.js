@@ -1,17 +1,20 @@
+import "babel-polyfill";
 import { hashHistory,browserHistory } from 'dva/router';
 import dva from 'dva';
+import createLoading from 'dva-loading';
 import routerConfig from './router';
+import appmodel from './models/app'
+
 // 1. Initialize
 const app = dva({
     history: browserHistory
 });
 
 // 2. Plugins
-// app.use({});
+app.use(createLoading());
 
 // 3. Model
-// app.model(require('./models/example'));
-
+app.model(appmodel)
 // 4. Router
 app.router(routerConfig);
 
