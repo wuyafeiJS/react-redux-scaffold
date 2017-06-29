@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import { hashHistory,browserHistory } from 'dva/router';
 import dva from 'dva';
 import routerConfig from './router';

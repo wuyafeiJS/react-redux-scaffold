@@ -14,8 +14,9 @@ import Products from './routes/Products';
 const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
-      <Route path="/" component={App} />
-      <Route path="/products" component={Products} />
+      <Route path="/" component={App} >
+        <Route path="/products" component={Products} />
+      </Route>
     </Router>
   )
 }

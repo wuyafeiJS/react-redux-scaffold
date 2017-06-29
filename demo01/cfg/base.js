@@ -23,6 +23,13 @@ module.exports = {
     contentBase: './src/',
     historyApiFallback: true,
     hot: true,
+    proxy: {
+      '/api': {
+        "target": "http://jsonplaceholder.typicode.com/",
+    "changeOrigin": true,
+    "pathRewrite": { "^/api" : "" }
+      }
+    },
     port: defaultSettings.port,
     publicPath: defaultSettings.publicPath,
     noInfo: false
