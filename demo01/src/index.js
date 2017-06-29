@@ -1,17 +1,17 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import{ createStore } from'redux';
-import reducer from './reducers';
-import { Router, hashHistory } from 'react-router';
+import 'babel-polyfill';
+import dva from 'dva';
+import routerConfig from './router';
+// 1. Initialize
+const app = dva();
 
-import routes from './routes';
+// 2. Plugins
+// app.use({});
 
-const store = createStore(reducer);
+// 3. Model
+// app.model(require('./models/example'));
 
-render(
-  <Provider store={store}>
-    <Router history={hashHistory} routes={routes} />
-  </Provider>,
-  document.getElementById('app')
-);
+// 4. Router
+app.router(routerConfig);
+
+// 5. Start
+app.start('#app');
