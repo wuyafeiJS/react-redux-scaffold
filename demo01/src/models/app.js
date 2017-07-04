@@ -9,9 +9,8 @@ export default {
     }
   },
   effects: {
-    *fetchIt({ payload: {} }, { call, put }) {
-      const {data} = yield call(usersService.query);
-      console.log(data)
+    *fetchIt({ payload: { page } }, { call, put }) {
+      const {data} = yield call(usersService.query, { page });
       yield put({
         type: 'userInfo',
         payload: {

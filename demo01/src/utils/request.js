@@ -1,6 +1,6 @@
 import fetch from 'dva/fetch';
 import { message } from 'antd';
-
+import PREFIX from 'config'
 //  let checkStatus=(response)=>{
 //    if (response.status >= 200 && response.status < 300) {
 //     return response;
@@ -36,7 +36,8 @@ let handleError=(err)=>{
  */
 
 export default async function request(url, options) {
-  const response = await fetch(url, options);
+  const path = PREFIX.apiPrefix + url;
+  const response = await fetch(path, options);
   try {
     const data = await response.json();
     //handledata(data);
