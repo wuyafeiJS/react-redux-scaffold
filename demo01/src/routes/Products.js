@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'dva'
-import { Table, Pagination, Popconfirm } from 'antd';
+import { Table, Spin, Popconfirm } from 'antd';
 
 class Products extends Component {
     constructor(props) {
@@ -50,12 +50,14 @@ class Products extends Component {
 
         return (
             <div>
-              <Table
-                columns={columns}
-                dataSource={dataSource}
-                rowKey={record => record.id}
-                pagination={false}
-              />
+              <Spin spinning={this.props.loading}>
+                <Table
+                  columns={columns}
+                  dataSource={dataSource}
+                  rowKey={record => record.id}
+                  pagination={false}
+                />
+              </Spin>
             </div>
         )
     }

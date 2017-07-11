@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route } from 'dva/router';
+import { Router, Route, IndexRoute } from 'dva/router';
 import App from './routes/App';
 import Products from './routes/Products';
 
@@ -15,7 +15,7 @@ const RouterConfig = ({ history }) => {
   return (
     <Router history={history}>
       <Route path="/" component={App} >
-        <Route path="/products" component={Products} />
+        <IndexRoute component={Products} />
       </Route>
     </Router>
   )

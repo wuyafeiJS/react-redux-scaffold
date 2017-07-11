@@ -3,7 +3,8 @@ import { hashHistory,browserHistory } from 'dva/router';
 import dva from 'dva';
 import createLoading from 'dva-loading';
 import routerConfig from './router';
-import appmodel from './models/app'
+import appmodel from './models/app';
+import "./styles/App.scss"
 
 // 1. Initialize
 const app = dva({
